@@ -34,6 +34,7 @@ object Dependencies {
         const val fragment_ktx = "androidx.fragment:fragment-ktx:1.3.0-alpha07"
         const val lifecycle_common = "androidx.lifecycle:lifecycle-common-java8:2.3.0-alpha06"
         const val lifecycle_livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha06"
+        const val lifecycle_process = "androidx.lifecycle:lifecycle-process:2.3.0-alpha06"
         const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha06"
         const val material = "com.google.android.material:material:1.3.0-alpha02"
         const val preference = "androidx.preference:preference:1.1.1"

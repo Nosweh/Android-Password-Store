@@ -79,7 +79,7 @@ import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.api.errors.GitAPIException
 import org.eclipse.jgit.revwalk.RevCommit
 
-class PasswordStore : AppCompatActivity(R.layout.activity_pwdstore) {
+class PasswordStore : BaseActivity() {
 
     private lateinit var activity: PasswordStore
     private lateinit var searchItem: MenuItem
@@ -175,6 +175,7 @@ class PasswordStore : AppCompatActivity(R.layout.activity_pwdstore) {
             savedInstance = null
         }
         super.onCreate(savedInstance)
+        setContentView(R.layout.activity_pwdstore)
 
         // If user is eligible for Oreo autofill, prompt them to switch.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&

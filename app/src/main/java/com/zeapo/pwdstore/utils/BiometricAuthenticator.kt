@@ -62,6 +62,7 @@ object BiometricAuthenticator {
         }
         val biometricPrompt = BiometricPrompt(activity, { handler.post(it) }, authCallback)
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
+//            .setNegativeButtonText("Error")
             .setTitle(activity.getString(dialogTitleRes))
             .setDeviceCredentialAllowed(true)
             .build()

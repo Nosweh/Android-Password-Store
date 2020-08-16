@@ -17,6 +17,7 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult
 import androidx.lifecycle.lifecycleScope
 import com.github.ajalt.timberkt.e
+import com.zeapo.pwdstore.Application
 import com.zeapo.pwdstore.R
 import com.zeapo.pwdstore.databinding.DecryptLayoutBinding
 import com.zeapo.pwdstore.model.PasswordEntry

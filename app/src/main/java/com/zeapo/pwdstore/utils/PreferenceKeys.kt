@@ -28,15 +28,19 @@ object PreferenceKeys {
     const val GIT_EXTERNAL = "git_external"
     const val GIT_EXTERNAL_REPO = "git_external_repo"
     const val GIT_REMOTE_AUTH = "git_remote_auth"
+
     @Deprecated("Use GIT_REMOTE_URL instead")
     const val GIT_REMOTE_LOCATION = "git_remote_location"
+
     @Deprecated("Use GIT_REMOTE_URL instead")
     const val GIT_REMOTE_PORT = "git_remote_port"
     const val GIT_REMOTE_PROTOCOL = "git_remote_protocol"
     const val GIT_DELETE_REPO = "git_delete_repo"
+
     @Deprecated("Use GIT_REMOTE_URL instead")
     const val GIT_REMOTE_SERVER = "git_remote_server"
     const val GIT_REMOTE_URL = "git_remote_url"
+
     @Deprecated("Use GIT_REMOTE_URL instead")
     const val GIT_REMOTE_USERNAME = "git_remote_username"
     const val GIT_SERVER_INFO = "git_server_info"

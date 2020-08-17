@@ -23,7 +23,6 @@ import android.view.accessibility.AccessibilityManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts.OpenDocument
 import androidx.activity.result.contract.ActivityResultContracts.OpenDocumentTree
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.biometric.BiometricManager
 import androidx.core.content.edit
@@ -141,7 +140,8 @@ class UserPreference : BaseActivity() {
             // Misc preferences
             val appVersionPreference = findPreference<Preference>(PreferenceKeys.APP_VERSION)
 
-            selectExternalGitRepositoryPreference?.summary = sharedPreferences.getString(PreferenceKeys.GIT_EXTERNAL_REPO) ?: getString(R.string.no_repo_selected)
+            selectExternalGitRepositoryPreference?.summary = sharedPreferences.getString(PreferenceKeys.GIT_EXTERNAL_REPO)
+                ?: getString(R.string.no_repo_selected)
             viewSshKeyPreference?.isVisible = sharedPreferences.getBoolean(PreferenceKeys.USE_GENERATED_KEY, false)
             deleteRepoPreference?.isVisible = !sharedPreferences.getBoolean(PreferenceKeys.GIT_EXTERNAL, false)
             clearClipboard20xPreference?.isVisible = sharedPreferences.getString(PreferenceKeys.GENERAL_SHOW_TIME)?.toInt() != 0
@@ -226,7 +226,8 @@ class UserPreference : BaseActivity() {
             }
 
             selectExternalGitRepositoryPreference?.summary =
-                sharedPreferences.getString(PreferenceKeys.GIT_EXTERNAL_REPO) ?: context.getString(R.string.no_repo_selected)
+                sharedPreferences.getString(PreferenceKeys.GIT_EXTERNAL_REPO)
+                    ?: context.getString(R.string.no_repo_selected)
             selectExternalGitRepositoryPreference?.onPreferenceClickListener = ClickListener {
                 prefsActivity.selectExternalGitRepository()
                 true
@@ -569,7 +570,7 @@ class UserPreference : BaseActivity() {
      * Exports the passwords
      */
     private fun exportPasswords() {
-        AuthManager.skipAuth = true
+        AuthManager.skipNextAuthRequest = true
         registerForActivityResult(object : OpenDocumentTree() {
             override fun createIntent(context: Context, input: Uri?): Intent {
                 return super.createIntent(context, input).apply {

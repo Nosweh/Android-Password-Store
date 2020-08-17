@@ -46,7 +46,7 @@ class Application : android.app.Application(), SharedPreferences.OnSharedPrefere
             PreferenceKeys.APP_THEME -> setNightMode()
             PreferenceKeys.BIOMETRIC_AUTH -> {
                 AuthManager.isAuthEnabled = sharedPrefs.getBoolean(PreferenceKeys.BIOMETRIC_AUTH, false)
-                AuthManager.doOnSuccess()
+                AuthManager.onSuccess()
             }
         }
     }

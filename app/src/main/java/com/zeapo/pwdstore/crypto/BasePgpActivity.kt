@@ -191,7 +191,7 @@ open class BasePgpActivity : BaseActivity(), OpenPgpServiceConnection.OnBound {
      */
     fun getUserInteractionRequestIntent(result: Intent): IntentSender {
         i { "RESULT_CODE_USER_INTERACTION_REQUIRED" }
-        AuthManager.skipAuth = true
+        AuthManager.skipNextAuthRequest = true
         return (result.getParcelableExtra(OpenPgpApi.RESULT_INTENT) as PendingIntent).intentSender
     }
 

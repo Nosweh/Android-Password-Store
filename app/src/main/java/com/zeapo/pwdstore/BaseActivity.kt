@@ -6,7 +6,6 @@ import androidx.core.content.edit
 import androidx.core.view.isVisible
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import com.github.ajalt.timberkt.Timber.d
 import com.zeapo.pwdstore.utils.BiometricAuthenticator
 import com.zeapo.pwdstore.utils.PreferenceKeys
 import com.zeapo.pwdstore.utils.sharedPrefs
@@ -19,19 +18,19 @@ abstract class BaseActivity : AppCompatActivity() {
         if (AuthManager.shouldAuthenticate()) {
             val view = findViewById<View>(android.R.id.content)
             view.isVisible = false
-            AuthManager.skipAuth = true
+            AuthManager.skipNextAuthRequest = true
             BiometricAuthenticator.authenticate(this) {
                 view.isVisible = true
                 when (it) {
                     is BiometricAuthenticator.Result.Success -> {
-                        AuthManager.doOnSuccess()
+                        AuthManager.onSuccess()
                     }
                     is BiometricAuthenticator.Result.HardwareUnavailableOrDisabled -> {
                         prefs.edit { remove(PreferenceKeys.BIOMETRIC_AUTH) }
-                        AuthManager.doOnSuccess()
+                        AuthManager.onSuccess()
                     }
                     is BiometricAuthenticator.Result.Failure, BiometricAuthenticator.Result.Cancelled -> {
-                        AuthManager.doOnFailure()
+                        AuthManager.onFailure()
                         finishAffinity()
                     }
                 }
@@ -42,7 +41,7 @@ abstract class BaseActivity : AppCompatActivity() {
     class ProcessLifecycleObserver : DefaultLifecycleObserver {
 
         override fun onStop(owner: LifecycleOwner) {
-            AuthManager.doOnBackground()
+            AuthManager.onBackground()
             super.onStop(owner)
         }
     }

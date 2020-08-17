@@ -23,6 +23,8 @@ object Dependencies {
 
     object AndroidX {
 
+        private const val lifecycleVersion = "2.3.0-alpha06"
+
         const val activity_ktx = "androidx.activity:activity-ktx:1.2.0-alpha07"
         const val annotation = "androidx.annotation:annotation:1.2.0-alpha01"
         const val autofill = "androidx.autofill:autofill:1.1.0-alpha01"
@@ -32,10 +34,10 @@ object Dependencies {
         const val core_ktx = "androidx.core:core-ktx:1.5.0-alpha01"
         const val documentfile = "androidx.documentfile:documentfile:1.0.1"
         const val fragment_ktx = "androidx.fragment:fragment-ktx:1.3.0-alpha07"
-        const val lifecycle_common = "androidx.lifecycle:lifecycle-common-java8:2.3.0-alpha06"
-        const val lifecycle_livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha06"
-        const val lifecycle_process = "androidx.lifecycle:lifecycle-process:2.3.0-alpha06"
-        const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha06"
+        const val lifecycle_common = "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+        const val lifecycle_livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+        const val lifecycle_process = "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
+        const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
         const val material = "com.google.android.material:material:1.3.0-alpha02"
         const val preference = "androidx.preference:preference:1.1.1"
         const val recycler_view = "androidx.recyclerview:recyclerview:1.2.0-alpha05"

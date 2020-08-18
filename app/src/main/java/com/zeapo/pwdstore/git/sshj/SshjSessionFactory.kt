@@ -38,6 +38,7 @@ import org.eclipse.jgit.util.FS
 sealed class SshAuthData {
     class Password(val passwordFinder: InteractivePasswordFinder) : SshAuthData()
     class PublicKeyFile(val keyFile: File, val passphraseFinder: InteractivePasswordFinder) : SshAuthData()
+    class AndroidKeystoreKey(val keyAlias: String) : SshAuthData()
     class OpenKeychain(val activity: FragmentActivity) : SshAuthData()
 }
 

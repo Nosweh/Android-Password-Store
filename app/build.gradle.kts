@@ -120,7 +120,6 @@ dependencies {
     }
     // Loaded dynamically by JGit to provide symlink support
     implementation(Dependencies.ThirdParty.jgit_java7)
-    implementation(Dependencies.ThirdParty.jsch)
     implementation(Dependencies.ThirdParty.sshj)
     implementation(Dependencies.ThirdParty.bouncycastle)
     implementation(Dependencies.ThirdParty.plumber)

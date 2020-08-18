@@ -10,6 +10,7 @@ import androidx.annotation.StringRes
 import androidx.biometric.BiometricConstants
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.fragment.app.FragmentActivity
 import com.github.ajalt.timberkt.Timber.tag
@@ -60,13 +61,16 @@ object BiometricAuthenticator {
                 callback(Result.Success(result.cryptoObject))
             }
         }
-        val biometricPrompt = BiometricPrompt(activity, { handler.post(it) }, authCallback)
+        // Use the applicationContext's mainExecutor to prevent leaking contexts through
+        // BiometricPrompt internals.
+        val biometricPrompt = BiometricPrompt(activity,
+            ContextCompat.getMainExecutor(activity.applicationContext),
+            authCallback)
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle(activity.getString(dialogTitleRes))
             .setDeviceCredentialAllowed(true)
             .build()
-        if (BiometricManager.from(activity).canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS ||
-            activity.getSystemService<KeyguardManager>()?.isDeviceSecure == true) {
+        if (BiometricManager.from(activity).canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS || activity.keyguardManager.isDeviceSecure) {
             biometricPrompt.authenticate(promptInfo)
         } else {
             callback(Result.HardwareUnavailableOrDisabled)

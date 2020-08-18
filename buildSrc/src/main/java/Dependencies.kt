@@ -54,7 +54,6 @@ object Dependencies {
         const val bouncycastle = "org.bouncycastle:bcprov-jdk15on:1.66"
         const val commons_codec = "commons-codec:commons-codec:1.14"
         const val fastscroll = "me.zhanghai.android.fastscroll:library:1.1.4"
-        const val jsch = "com.jcraft:jsch:0.1.55"
         const val jgit = "org.eclipse.jgit:org.eclipse.jgit:3.7.1.201504261725-r"
         const val jgit_java7 = "org.eclipse.jgit:org.eclipse.jgit.java7:3.7.1.201504261725-r"
         const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.4"

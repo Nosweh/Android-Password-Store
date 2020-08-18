@@ -201,8 +201,13 @@
     <string name="ssh_keygen_tip">Provide this public key to your Git server.</string>
     <string name="ssh_key_gen_generating_progress">Generating keys…</string>
     <string name="ssh_keygen_generating_done">Done!</string>
-    <string name="key_length_2048" translatable="false">2048</string>
-    <string name="key_length_4096" translatable="false">4096</string>
+    <string name="ssh_keygen_require_authentication">Protect with screen lock credential</string>
+    <string name="ssh_keygen_copied_key">Public key copied to clipboard</string>
+
+    <!-- SSH Android Keystore auth -->
+    <string name="biometric_auth_generic_failure">Screen lock authentication failed</string>
+    <string name="biometric_prompt_title_ssh_auth">Unlock SSH key</string>
+    <string name="biometric_prompt_title_ssh_keygen">Generate SSH key</string>
 
     <!-- Misc -->
     <string name="dialog_ok">OK</string>
@@ -392,4 +397,7 @@
     <string name="folder_creation_err_folder_exists">A folder by that name already exists</string>
     <string name="xkpwgen_extrachars_label" >Digits/Symbols (d/s)</string>
     <string name="xk_numbers_symbols_append_default">ds</string>
+    <string name="ssh_keygen_type">Key type</string>
+    <string name="key_label_rsa_3072">RSA 3072</string>
+    <string name="key_label_ecdsa_384">P-384</string>
 </resources>

@@ -10,6 +10,7 @@ import android.content.ClipData
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -41,6 +42,7 @@ class ShowSshKeyFragment : DialogFragment() {
                 val clipboard = activity.clipboard ?: return@setOnClickListener
                 val clip = ClipData.newPlainText("public key", publicKey.text.toString())
                 clipboard.setPrimaryClip(clip)
+                Toast.makeText(context, R.string.ssh_keygen_copied_key, Toast.LENGTH_SHORT).show()
             }
         }
         return ad
